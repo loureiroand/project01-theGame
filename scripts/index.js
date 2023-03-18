@@ -27,7 +27,7 @@ document.addEventListener('keydown', event => {
   switch (event.key) {
     case 'ArrowUp':
       if (shepherd.y > 0) {
-        ghost.moveUp();
+        shepherd.moveUp();
       }
       break;
     case 'ArrowDown':
@@ -44,14 +44,17 @@ document.addEventListener('keydown', event => {
 
 function updateCanvas() {
   ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-  background.updateBackground();
+  // background.updateBackground();
 
   if (shepherd.loaded) {
     shepherd.draw();
   }
-  reaquestAnimationFrame(updateCanvas);
+  requestAnimationFrame(updateCanvas);
 }
 
+updateCanvas();
+
+// example
 // let Shape = function (x, y, width, height) {
 //   this.x = x;
 //   this.y = y;
