@@ -15,11 +15,27 @@ const ctx = canvas.getContext('2d');
 // Shepherd
 const shepherd = new Shepherd();
 
+// Predator
+const fox = new Predator();
+function handlePredator() {
+  fox.update();
+  fox.draw();
+}
+
+// drawPredators = () => {
+//   this.predators.forEach(predator => {
+//     predator.x -= 1;
+//     predator.draw();
+//   });
+// };
+
 canvas.clientWidth = 1200;
 canvas.clientHeight = 800;
 
 let score = 0;
 let gameFrame = 0;
+ctx.font = '40px Georgia';
+let gameSpeed = 0;
 
 // Arrow Keys interactivity
 document.addEventListener('keydown', event => {
@@ -49,6 +65,9 @@ function updateCanvas() {
   if (shepherd.loaded) {
     shepherd.draw();
   }
+  handlePredator();
+  ctx.fillStyle = 'white';
+  ctx.fillText('Score: ' + score, 30, 60);
   requestAnimationFrame(updateCanvas);
 }
 
