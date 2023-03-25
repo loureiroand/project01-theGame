@@ -1,11 +1,11 @@
 // Player shepherd
 
 class Shepherd {
-  constructor(width, height, x, y) {
+  constructor() {
     this.x = 60;
     this.y = 350;
-    this.width = width;
-    this.height = height;
+    this.width = 70;
+    this.height = 70;
     this.speedX = 0;
     this.speedY = 0;
     this.loaded = false;
@@ -32,21 +32,28 @@ class Shepherd {
     this.x -= 50;
   }
 
-  isCollidingWith(obstacle) {
-    if (
-      this.x < obstacle.x + obstacle.width &&
-      this.x + this.width > obstacle.x &&
-      this.y < obstacle.y + obstacle.height &&
-      this.y + this.height > obstacle.y
-    ) {
-      return true;
-    }
+  // left border is at x position
+  left = () => {
+    return this.x;
+  };
 
-    return false;
-  }
+  // right border is the x position plus the width of the element
+  right = () => {
+    return this.x + this.width;
+  };
+
+  // top border is the y position
+  top = () => {
+    return this.y;
+  };
+
+  // bottom border is at y position plus the height of the element
+  bottom = () => {
+    return this.y + this.height;
+  };
 
   draw() {
-    ctx.drawImage(this.img, this.x, this.y, 70, 70);
+    ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
   }
 }
 

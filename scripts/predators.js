@@ -1,9 +1,9 @@
 class Predator {
-  constructor(y, width, height, type) {
+  constructor(y, type) {
     this.x = canvas.width;
     this.y = y;
-    this.width = 60;
-    this.height = 60;
+    this.width = 70;
+    this.height = 70;
     this.type = type;
     this.isReady = false;
 
@@ -30,6 +30,35 @@ class Predator {
   move() {
     this.x -= 2;
   }
+
+  // left border is at x position
+  left = () => {
+    return this.x;
+  };
+
+  // right border is the x position plus the width of the element
+  right = () => {
+    return this.x + this.width;
+  };
+
+  // top border is the y position
+  top = () => {
+    return this.y;
+  };
+
+  // bottom border is at y position plus the height of the element
+  bottom = () => {
+    return this.y + this.height;
+  };
+
+  collisionWith = player => {
+    return !(
+      this.bottom() < player.top() ||
+      this.top() > player.bottom() ||
+      this.right() < player.left() ||
+      this.left() > player.right()
+    );
+  };
 }
 
 // Predator class

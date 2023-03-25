@@ -18,9 +18,9 @@ class Game {
   };
 
   drawScore = () => {
-    ctx.font = '30px Arial';
-    ctx.fillStyle = 'black';
-    ctx.fillText(`Score: ${this.score}`, 10, 30);
+    ctx.font = '30px Poppins';
+    ctx.fillStyle = 'white';
+    ctx.fillText(`Score: ${this.score}`, 30, 50);
   };
 
   loop = () => {
@@ -32,6 +32,8 @@ class Game {
     shepherd.draw();
 
     this.spawnPredators();
+
+    this.checkGameOver(shepherd);
   };
 
   spawnPredators = () => {
@@ -45,8 +47,21 @@ class Game {
     if (this.frames % 120 === 0) {
       const type = Math.floor(Math.random() * 2) === 0 ? 'wolf' : 'fox'; // 0 = wolf, 1 = fox
       const y = Math.floor(Math.random() * canvas.height - 60); // removing the height of the predator
-      const predator = new Predator(y, 50, 50, type);
+      const predator = new Predator(y, type);
       this.predators.push(predator);
+    }
+  };
+
+  checkGameOver = shepherd => {
+    const crashed = this.predators.some(predator => {
+      if (predator.collisionWith(shepherd)) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+    if (crashed) {
+      this.stop();
     }
   };
 }

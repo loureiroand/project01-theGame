@@ -22,11 +22,11 @@ const game = new Game();
 game.start();
 
 // Spawn Sheep
-function spawnSheep() {
-  const y = Math.floor(Math.random() * 450) + 50;
-  const sheepObj = new Sheep();
-  sheep.push(sheepObj);
-}
+// function spawnSheep() {
+//   const y = Math.floor(Math.random() * 450) + 50;
+//   const sheepObj = new Sheep();
+//   sheep.push(sheepObj);
+// }
 
 // Spawn predator and sheep
 // if (Math.random() < 0.05) {
