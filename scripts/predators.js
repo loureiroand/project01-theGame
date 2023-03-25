@@ -51,58 +51,16 @@ class Predator {
     return this.y + this.height;
   };
 
-  collisionWith = player => {
+  collisionWith = shepherd => {
     return !(
-      this.bottom() < player.top() ||
-      this.top() > player.bottom() ||
-      this.right() < player.left() ||
-      this.left() > player.right()
+      this.bottom() < shepherd.top() ||
+      this.top() > shepherd.bottom() ||
+      this.right() < shepherd.left() ||
+      this.left() > shepherd.right()
     );
   };
 }
 
-// Predator class
-// class Predator {
-//   constructor(x, y, width, height, image) {
-//     this.x = x;
-//     this.y = y;
-//     this.width = width;
-//     this.height = height;
-//     this.image = image;
-//   }
-
-//   draw() {
-//     ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
-//   }
-
-//   move(dx) {
-//     this.x -= dx;
-//   }
-// }
-
-// Predator 1
-// const predator1Img = new Image();
-// predator1Img.src = '../images/fox_body_01.png';
-
-// class Predator1 {
-//   constructor() {
-//     this.x = canvas.width + 200;
-//     this.y = Math.random() * (canvas.height - 150) + 90;
-//     this.radius = 35;
-//     this.speed = Math.random() * 2 + 2;
-//   }
-//   draw() {
-//     ctx.fillStyle = 'yellow';
-//     ctx.beginPath();
-//     ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-//     ctx.fill();
-//     ctx.drawImage(
-//       predator1Img,
-//       this.x - 25,
-//       this.y - 35,
-//       this.radius * 2,
-//       this.radius * 2
-//     );
 //   }
 //   update() {
 //     this.x -= this.speed;
@@ -142,36 +100,4 @@ class Predator {
 
 // let Predators = [];
 
-// class Fox {
-//   constructor() {
-//     this.x = Math.random() * canvas.clientWidth;
-//     this.y = Math.random() * canvas.clientHeight;
-//     this.width = 100;
-//     this.height = 100;
-//     this.speed = Math.random() * 5 + 1;
-//   }
-//   update() {
-//     this.x -= this.directionX;
-//   }
-//   draw() {
-//     ctx.fillRect(this.x, this.y, this.width, this.height);
-//   }
-
-//   update() {
-//     this.x -= this.directionX;
-//   }
-//   draw() {
-//     ctx.fillRect(this.x, this.y, this.width, this.height);
-//   }
-// }
-
-// const fox = new Fox();
-
-// function animate(timestamp) {
-//   ctx.clearRect(0, 0, canvas.width, canvas.height);
-//   fox.update();
-//   fox.draw();
-//   // ctx.clearRect(0, 0, canvas.width, canvas.height);
-//   requestAnimationFrame(animate);
-// }
 // animate();

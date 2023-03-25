@@ -3,7 +3,7 @@ class Game {
     // Initialize variables
     this.predators = [];
     this.sheep = [];
-    this.score = 10;
+    this.score = 50;
     this.gameover = false;
     this.interval = undefined;
     this.frames = 0;
@@ -15,6 +15,7 @@ class Game {
 
   stop = () => {
     clearInterval(this.interval);
+    // Draw Game Over or Start Game!!!
   };
 
   drawScore = () => {
@@ -53,15 +54,37 @@ class Game {
   };
 
   checkGameOver = shepherd => {
-    const crashed = this.predators.some(predator => {
+    const crashed = this.predators.some((predator, i) => {
       if (predator.collisionWith(shepherd)) {
+        this.predators.splice(i, 1);
+        this.score -= 10; // Subtract 10 points
         return true;
       } else {
         return false;
       }
     });
-    if (crashed) {
+    if (this.score <= 0) {
+      this.gameover = true; // End the game if the score reaches 0
       this.stop();
     }
   };
 }
+
+//   checkGameOver = shepherd => {
+//     let collisionCount = 0;
+//     const crashed = this.predators.some(predator => {
+//       if (predator.collisionWith(shepherd)) {
+//         return true;
+//       } else {
+//         return false;
+//       }
+//     });
+//     if (crashed) {
+//       this.score -= 10; // Subtract 10 points from the score
+//       if (this.score <= 0) {
+//         this.gameover = true; // End the game if the score reaches 0
+//       }
+//       this.stop();
+//     }
+//   };
+// }
