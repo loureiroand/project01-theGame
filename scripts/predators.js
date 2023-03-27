@@ -102,8 +102,4 @@ class Predator {
 // this.directionX = Math.random() * 5 + 3;
 // this.directionY = Math.random() * 5 - 2.5;
 
-// let foxesArray = [];
-
-// let Predators = [];
-
 // animate();

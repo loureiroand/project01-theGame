@@ -22,7 +22,7 @@ class Game {
 
   stop = () => {
     clearInterval(this.interval);
-    // Draw Game Over or Start Game!!!
+    // Draw Game Over!!!
     ctx.font = 'bold 100px Poppins';
     ctx.fillStyle = 'yellow';
     ctx.fillText('Game Over', canvas.width / 4, canvas.height / 2);
@@ -50,7 +50,7 @@ class Game {
 
     this.spawnPredators();
 
-    this.addScore();
+    this.addScore(shepherd);
 
     this.checkGameOver(shepherd);
   };
@@ -79,8 +79,6 @@ class Game {
       token.draw();
     });
 
-    this.frames += 1;
-
     const tokenSpawnRate = Math.max(60 - Math.floor(this.frames / 120), 30);
 
     if (this.frames % 120 === 0) {
@@ -92,7 +90,8 @@ class Game {
   };
 
   addScore = shepherd => {
-    const crashed1 = this.tokens.some((token, i) => {
+    const crashed = this.tokens.some((token, i) => {
+      console.log(token);
       if (token.collisionWith(shepherd)) {
         this.tokens.splice(i, 1);
         this.score += 10; // adds 10 points
@@ -132,22 +131,3 @@ class Game {
 //     this.predators.push(predator);
 //   }
 // };
-
-//   checkGameOver = shepherd => {
-//     let collisionCount = 0;
-//     const crashed = this.predators.some(predator => {
-//       if (predator.collisionWith(shepherd)) {
-//         return true;
-//       } else {
-//         return false;
-//       }
-//     });
-//     if (crashed) {
-//       this.score -= 10; // Subtract 10 points from the score
-//       if (this.score <= 0) {
-//         this.gameover = true; // End the game if the score reaches 0
-//       }
-//       this.stop();
-//     }
-//   };
-// }

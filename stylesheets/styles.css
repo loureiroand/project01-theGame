@@ -55,10 +55,10 @@ body {
   display: inline;
   position: absolute;
   left: 45%;
-  top: 70%;
+  top: 65%;
   border: #e5e53c;
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 20px;
   margin: 4px 2px;
   cursor: pointer;
 }
