@@ -1,4 +1,4 @@
-class Predator {
+class Token {
   constructor(y, type) {
     this.x = canvas.width;
     this.y = y;
@@ -14,12 +14,12 @@ class Predator {
       this.isReady = true;
     };
 
-    if (type === 'fox') {
-      img.src = '../images/fox_body_01.png';
-    } else if (type === 'wolf') {
-      img.src = '../images/wolf_body_01.png';
+    if (type === 'sheep') {
+      img.src = '../images/sheep_body_01.png';
+    } else if (type === 'grass') {
+      img.src = '../images/grass_01.png';
     }
-    // adjust the position of predator
+    // adjust the position of tokens
     if (this.y < 0) {
       this.y = 0;
     } else if (this.y + this.height > canvas.height) {
@@ -66,44 +66,3 @@ class Predator {
     );
   };
 }
-
-//   }
-//   update() {
-//     this.x -= this.speed;
-//     if (this.x < 0 - this.radius * 2) {
-//       this.x = canvas.width + 200;
-//       this.y = Math.random() * (canvas.height - 150) + 90;
-//       this.speed = Math.random() * 2 + 2;
-//     }
-
-// collision with
-// collisionWidth = predator => {
-//   return !(
-//     this.bottom() < predator.top() ||
-//     this.top() > predator.bottom() ||
-//     this.right() < predator.left() ||
-//     this.left() > predator.right()
-//   );
-// };
-//   }
-// }
-
-// const fox = new Predator();
-// function handlePredator() {
-//   predator1.update();
-//   predator1.draw();
-// }
-
-// this.width = 100;
-// this.height = 100;
-// this.x = Math.random() * canvas.clientWidth;
-// this.y = Math.random() * canvas.clientHeight;
-// this.y = Math.random() * (canvas.height - this.height);
-// this.directionX = Math.random() * 5 + 3;
-// this.directionY = Math.random() * 5 - 2.5;
-
-// let foxesArray = [];
-
-// let Predators = [];
-
-// animate();

@@ -19,8 +19,13 @@ canvas.clientHeight = 800;
 const shepherd = new Shepherd();
 
 const game = new Game();
-game.start();
 
+const startButton = document.getElementById('start-btn');
+startButton.addEventListener('click', () => {
+  game.start();
+  canvas.style.display = 'block';
+  startButton.style.display = 'none';
+});
 // Spawn Sheep
 // function spawnSheep() {
 //   const y = Math.floor(Math.random() * 450) + 50;
